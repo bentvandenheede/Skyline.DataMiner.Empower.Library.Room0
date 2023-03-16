@@ -7,10 +7,10 @@ Empower Demo - Library that allows an order to be placed on DataMiner solutions.
 This is done through HTTPS to a User Defined API on DataMiner.
 It can only be done from a windows server that has the right security GUID configured using the following commands in powershell:
 
-'''
+```
 dotnet tool install --global Skyline.DataMiner.CICD.Tools.WinEncryptedKeys
 WinEncryptedKeys --name SLC_EXTERNAL_DISPATCHER_KEY --value GUID
-'''
+```
 
 ### About DataMiner
 
@@ -30,7 +30,7 @@ At Skyline Communications, we deal in world-class solutions that are deployed by
 
 ## Getting Started
 
-''' csharp
+``` csharp
 var order = new Order("Order 1");
 order.Dispatch("MyUser");
-'''
+```
