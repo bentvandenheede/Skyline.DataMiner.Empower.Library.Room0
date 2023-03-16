@@ -14,7 +14,7 @@
     /// <summary>
     ///  Allows dispatching of an order to be sent over HTTPS to DataMiner.
     /// </summary>
-    internal class Order
+    internal class Order : IOrder
     {
         private const string endpoint = "https://solutions.skyline.be/api/custom/operations/order";
         private static readonly string keyName = "SLC_EXTERNAL_DISPATCHER_KEY";
@@ -23,11 +23,15 @@
         private readonly string suffix;
         private readonly string name;
 
-        public Order(string orderName)
+        /// <summary>
+        /// Creates an instance of <see cref="Order"/>.
+        /// </summary>
+        /// <param name="orderValue">Value of the order.</param>
+        public Order(string orderValue)
         {
             // Key was setup using the dotnet tool Skyline.DataMiner.CICD.Tools.WinEncryptedKeys
             apiKey = Keys.RetrieveKey(keyName);
-            name = orderName;
+            name = orderValue;
             suffix = " from room 'ThisIsABug'";
         }
 
@@ -41,7 +45,7 @@
         /// <param name="user">The user dispatching the job.</param>
         /// <returns>True if the dispatch was successful, False if logging failed.</returns>
         public bool Dispatch(string user)
-        {   
+        {
             Task<bool> task = DispatchAsync(user);
             return task.WaitAndUnwrapException();
         }

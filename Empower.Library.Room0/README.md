@@ -31,6 +31,6 @@ At Skyline Communications, we deal in world-class solutions that are deployed by
 ## Getting Started
 
 ``` csharp
-var order = new Order("Order 1");
+var order = OrderFactory.CreateOrder("Order 1");
 order.Dispatch("MyUser");
 ```
