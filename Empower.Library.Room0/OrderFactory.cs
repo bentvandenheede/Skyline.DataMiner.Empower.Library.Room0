@@ -1,15 +1,11 @@
-﻿using Skyline.DataMiner.Empower.Library.Room0;
-
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Empower.Library.Room0
+﻿namespace Empower.Library.Room0
 {
-    /// <summary>
-    /// Factory to create Orders.
-    /// </summary>
-    public static class OrderFactory
+	using Skyline.DataMiner.Empower.Library.Room0;
+
+	/// <summary>
+	/// Factory to create Orders.
+	/// </summary>
+	public static class OrderFactory
     {
         /// <summary>
         /// Create an instance of <see cref="IOrder"/>.
